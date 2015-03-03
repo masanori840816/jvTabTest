@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>TabTest</title>
+    <link href='css/stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <main id='main' onload='loadTabs(0, 0);'>
+      <section id='tab_frame'>
+        <input id='arrow_button_left' class='button_arrow' type='button'>
+          <label class='arrow_label' for='arrow_button_left'>＜</label>
+        <input id='tab_0' class='tab_radio' type='radio' name='tabs' data-tab-num=0>
+          <label id='tab_label_0' class='tab_label' for='tab_0'></label>
+        <input id='tab_1' class='tab_radio' type='radio' name='tabs' data-tab-num=1>
+          <label id='tab_label_1' class='tab_label' for='tab_1'>タブ２</label>
+        <input id='tab_2' class='tab_radio' type='radio' name='tabs' data-tab-num=2>
+          <label id='tab_label_2' class='tab_label' for='tab_2'>タブ３</label>
+        <input id='tab_3' class='tab_radio' type='radio' name='tabs' data-tab-num=3>
+          <label id='tab_label_3' class='tab_label' for='tab_3'>タブ４</label>
+        <input id='tab_4' class='tab_radio' type='radio' name='tabs' data-tab-num=4>
+          <label id='tab_label_4' class='tab_label' for='tab_4'>タブ５</label>
+        <input id='arrow_button_right' class='button_arrow' type='button'>
+          <label id='arrow_label' for='arrow_button_right'>＞</label>
+      </section>
+      <section id='btn_frame'>
+        <input id='btn_contents_0' class='btnContents' type='radio' name='btns' data-content-num=0>
+          <label id='btn_label_0' class='btn_label' for='btn_contents_0'>ボタン0</label>
+        <input id='btn_contents_1' class='btnContents' type='radio' name='btns' data-content-num=1>
+          <label id='btn_label_1' class='btn_label' for='btn_contents_1'>ボタン1</label>
+      </section>
+      <section id='contents_frame'></section>
+    </main>
+    <script src='js/jquery-2.1.3.min.js'></script>
+    <script src='js/underscore-min.js'></script>
+    <script src='js/backbone-min.js'></script>
+    <script src='js/javascript.js'></script>
+  </body>
+</html>

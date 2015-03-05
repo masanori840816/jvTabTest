@@ -1,7 +1,6 @@
 package controller;
 
-import java.io.File;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.util.Enumeration;
 
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TabController
  */
-@WebServlet("/contents")
+@WebServlet("/TabController")
 public class TabController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,25 +29,32 @@ public class TabController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		Enumeration<String> names = request.getParameterNames();
-		String paramName;
-		String content = "";
-		if (names.hasMoreElements()){
-			paramName = names.nextElement();
-			content = (String)request.getParameter(paramName);
-		}
-		String strCntFilePath = this.getServletContext().getRealPath("/contents/" + content + ".html");
-		
-		File file = new File(strCntFilePath);
-		
-		char data[] = new char[3000];
-		FileReader filereader = new FileReader(file);
-		int charscount = filereader.read(data);
-		String str = new String(data,0,charscount);		
-		filereader.close();
-		response.setContentType("text/html");
-		response.getWriter().write(str);
+    	/*// エンコーディングの指定.
+    	  request.setCharacterEncoding("UTF-8");
+
+    	  // JavaScriptから「cnt=0」のように渡されるパラメータを取得.
+    	  Enumeration names = request.getParameterNames();
+    	  String strContent = "";
+    	  String strGotResult = "";
+    	  if (names.hasMoreElements()){
+    	    strContent = (String)request.getParameter(names.nextElement());
+    	    // 取得したパラメータから、HTMLファイルのパスを取得する.
+    	    String strCntFilePath = this.getServletContext().getRealPath("/contents/" + strContent + ".html");
+    	    // 取得したパスからファイルを取得する.
+    	    File file = new File(strCntFilePath);
+
+    	    char data[] = new char[3000];
+    	    FileReader filereader = new FileReader(file);
+    	    // ファイルの内容を読み込む.
+    	    int charscount = filereader.read(data);
+    	    strGotResult = new String(data,0,charscount);
+    	    // ファイルリーダーを閉じる
+    	    filereader.close();
+    	  }
+    	  // 戻り値の内容をHTMLに設定して、読み込んだ内容を返す.
+    	  response.setContentType("text/html");
+    	  response.getWriter().write(strGotResult);
+		*/
 	}
 
 	/**

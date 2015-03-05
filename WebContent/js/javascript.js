@@ -11,16 +11,16 @@ var FileCollection = Backbone.Collection.extend({
 	model: FileModel
 });
 var ContentFileCollection = new FileCollection([
-		{page: 0, content: 0, file: '0'},
-		{page: 0, content: 1, file: '1'},
-		{page: 1, content: 0, file: '0'},
-		{page: 1, content: 1, file: '1'},
-		{page: 2, content: 0, file: '0'},
-		{page: 2, content: 1, file: '1'},
-		{page: 3, content: 0, file: '0'},
-		{page: 3, content: 1, file: '1'},
-		{page: 4, content: 0, file: '0'},
-		{page: 4, content: 1, file: '1'}]);
+		{page: 0, content: 0, file: '0.html'},
+		{page: 0, content: 1, file: '1.html'},
+		{page: 1, content: 0, file: '0.html'},
+		{page: 1, content: 1, file: '1.html'},
+		{page: 2, content: 0, file: '0.html'},
+		{page: 2, content: 1, file: '1.html'},
+		{page: 3, content: 0, file: '0.html'},
+		{page: 3, content: 1, file: '1.html'},
+		{page: 4, content: 0, file: '0.html'},
+		{page: 4, content: 1, file: '1.html'}]);
 var TabView = Backbone.View.extend({
 	el: '#main',
 	events: {
@@ -84,7 +84,7 @@ var TabView = Backbone.View.extend({
 	this.getHtml = function(intNewTabNum, intNewContentNum) {
 		$.ajax({
 			type: 'GET',
-			url: 'contents?cnt=' + ContentFileCollection.findWhere({page: intNewTabNum, content: intNewContentNum}).get('file'),
+			url: 'contents/' + ContentFileCollection.findWhere({page: intNewTabNum, content: intNewContentNum}).get('file'),
 			dataType: 'html',
 			success: function(data) {
 				$('#contents_frame').html(data);

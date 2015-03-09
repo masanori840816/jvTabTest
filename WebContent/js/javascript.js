@@ -1,5 +1,6 @@
 var intTabNum = 0;
 var intRightTabNum = 2;
+var PARAM_RIGHT_TAB_NUM = 'rtn='
 var FileModel = Backbone.Model.extend({
 	defaults: {
 		page: 0,
@@ -45,7 +46,7 @@ var TabView = Backbone.View.extend({
 	movePage: function (e) {
 		var strTargetId = '#' + e.target.id;
 		var intNewPageNum = jQuery(strTargetId).data('tabNum');
-		location.href='?tab=' + intNewPageNum + '&lrt=' + intRightTabNum;
+		location.href='page?tab=' + intNewPageNum + '&' + PARAM_RIGHT_TAB_NUM + intRightTabNum;
 	},
 	showContents: function(e) {
 		var strTargetId = '#' + e.target.id;
@@ -62,9 +63,12 @@ var TabView = Backbone.View.extend({
 	var view = new TabView();
 
 	this.loadTabs = function(intNewTabNum, intLastRightTabNum){
+		var arySplitByName = window.location.search.split(PARAM_RIGHT_TAB_NUM);
+		var aryRightTabNum = (arySplitByName.length > 1)? arySplitByName[1].split('&'): [2];
+
 		// ロード時に実行. Tabの表示切り替え、矢印ボタンのEnable/Disable.
 		intTabNum = intNewTabNum;
-		intRightTabNum = intLastRightTabNum;
+		intRightTabNum = aryRightTabNum[0];
 		updateTabStyles();
 		// デフォルトでボタン0のコンテンツが表示されるようにする
 		document.getElementById("btn_contents_0").checked = true;

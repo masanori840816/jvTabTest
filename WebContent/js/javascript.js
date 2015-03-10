@@ -63,6 +63,7 @@ var TabView = Backbone.View.extend({
 	var view = new TabView();
 
 	this.loadTabs = function(intNewTabNum, intLastRightTabNum){
+		// URLのパラメータを取得して、右に表示されるTab番号(rtn=2)を取得する.
 		var arySplitByName = window.location.search.split(PARAM_RIGHT_TAB_NUM);
 		var aryRightTabNum = (arySplitByName.length > 1)? arySplitByName[1].split('&'): [2];
 

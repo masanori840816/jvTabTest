@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/color")
 public class ColorController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
   public ColorController() {
     super();
   }

@@ -1,6 +1,6 @@
 var intTabNum = 0;
 var intRightTabNum = 2;
-var PARAM_RIGHT_TAB_NUM = 'rtn='
+var PARAM_RIGHT_TAB_NUM = 'rtn=';
 var FileModel = Backbone.Model.extend({
 	defaults: {
 		page: 0,
